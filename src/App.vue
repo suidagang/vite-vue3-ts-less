@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-const num = ref<number>(0);
+const num = ref<number>(1);
 num.value = '123';
 </script>
 
