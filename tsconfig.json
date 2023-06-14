@@ -30,6 +30,7 @@
 		"src/**/*.d.ts",
 		"src/**/*.tsx",
 		"src/**/*.vue",
+		".eslintrc.cjs",
 		"vite.config.ts"
 	],
 	"references": [{ "path": "./tsconfig.node.json" }]
