@@ -2,11 +2,13 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import eslintPlugin from 'vite-plugin-eslint'; // 新增
+import stylelitPlugin from 'vite-plugin-stylelint';
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		vue(),
+		stylelitPlugin(),
 		// 增加下面的配置项,这样在运行时就能检查eslint规范
 		eslintPlugin({
 			include: [

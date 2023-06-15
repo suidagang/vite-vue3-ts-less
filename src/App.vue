@@ -8,4 +8,8 @@ const num = ref<number>(1);
 num.value = '123';
 </script>
 
-<style scoped></style>
+<style>
+.app-box {
+	color: #ccc;
+}
+</style>
