@@ -6,7 +6,7 @@ module.exports = {
 	extends: [
 		'stylelint-config-standard',
 		'stylelint-config-recommended-vue',
-		// 'stylelint-config-rational-order',
+		'stylelint-config-rational-order',
 	],
 	plugins: ['stylelint-prettier'], // stylelint-order是CSS属性排序插件
 	// customSyntax: 'postcss-html',

@@ -53,6 +53,9 @@
     "*.{js,jsx,vue,ts,tsx}": [
       "npm run lint",
       "npm run prettier-format"
+    ],
+    "*.{vue,less,css,scss,sass}": [
+      "npm run  lint:css"
     ]
   }
 }
