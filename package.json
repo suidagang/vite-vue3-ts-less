@@ -58,9 +58,9 @@
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
       "yarn lint",
+      "tsc-files --noEmit",
       "yarn prettier-format"
     ],
-    "**/*.{js,jsx,vue,ts,tsx}": "tsc-files --noEmit",
     "*.{vue,less,css,scss,sass}": [
       "yarn  lint:css"
     ]
