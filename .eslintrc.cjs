@@ -8,9 +8,32 @@ module.exports = {
 		'standard-with-typescript',
 		'plugin:vue/vue3-essential',
 		'prettier',
+		'./.eslintrc-auto-import.json',
 	],
 	// 新增
 	parser: 'vue-eslint-parser',
+	settings: {
+		'import/extensions': [
+			'.js',
+			'.jsx',
+			'.ts',
+			'.tsx',
+			'.vue',
+			'.less',
+			'.css',
+		],
+		// 'import/parsers': {
+		// 	'@typescript-eslint/parser': ['.ts', '.tsx'],
+		// },
+		// 'import/resolver': {
+		// 	typescript: {
+		// 		directory: './tsconfig.json',
+		// 	},
+		// 	node: {
+		// 		extensions: ['.js', '.tsx'],
+		// 	},
+		// },
+	},
 	parserOptions: {
 		// 新增
 		parser: '@typescript-eslint/parser',

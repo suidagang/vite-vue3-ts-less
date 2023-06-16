@@ -3,12 +3,43 @@ import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import eslintPlugin from 'vite-plugin-eslint'; // 新增
 import stylelitPlugin from 'vite-plugin-stylelint';
+import AutoImport from 'unplugin-auto-import/vite'; // 自动导入常用的使用的第三方库的 API
+import Components from 'unplugin-vue-components/vite'; // 组件自动按需导入。
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		vue(),
 		stylelitPlugin(),
+		Components({
+			dirs: ['src/components'], // 目标文件夹
+			extensions: ['vue', 'jsx'], // 文件类型
+			dts: 'src/components.d.ts', // 输出文件，里面都是一些import的组件键值对
+			// ui库解析器，也可以自定义，需要安装相关UI库
+			resolvers: [
+				// VantResolver(),
+				ElementPlusResolver(),
+				// AntDesignVueResolver(),
+				// HeadlessUiResolver(),
+				// ElementUiResolver()
+			],
+		}),
+		AutoImport({
+			resolvers: [ElementPlusResolver()],
+			include: [
+				/\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+				/\.vue$/,
+				/\.vue\?vue/, // .vue
+			],
+			eslintrc: {
+				enabled: false, // 若没此json文件，先开启，生成后在关闭
+				filepath: './.eslintrc-auto-import.json', // 设置eslintrc-auto-import.json生成路径 Default `./.eslintrc-auto-import.json`
+				globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+			},
+			imports: ['vue', 'vue-router'], // 自动引入vue和vue-router相关函数
+			dts: 'src/types/auto-import.d.ts', // 生成 `auto-import.d.ts` 全局声明
+		}),
 		// 增加下面的配置项,这样在运行时就能检查eslint规范
 		eslintPlugin({
 			include: [
@@ -23,7 +54,17 @@ export default defineConfig({
 	],
 	resolve: {
 		// ↓import引入忽略文件的后缀名
-		extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
+		extensions: [
+			'.js',
+			'.ts',
+			'.jsx',
+			'.tsx',
+			'.json',
+			'.vue',
+			'.css',
+			'.less',
+			'.css',
+		],
 		// ↓路径别名
 		alias: {
 			'@': resolve(__dirname, './src'),
