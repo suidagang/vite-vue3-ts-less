@@ -56,12 +56,12 @@
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
-      "npm run lint",
-      "npm run vue-tsc",
-      "npm run prettier-format"
+      "yarn lint",
+      "yarn vue-tsc",
+      "yarn prettier-format"
     ],
     "*.{vue,less,css,scss,sass}": [
-      "npm run  lint:css"
+      "yarn  lint:css"
     ]
   }
 }
