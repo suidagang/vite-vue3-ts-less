@@ -2,13 +2,16 @@
 	<div class="box">
 		<span>我是路由首页</span>
 		<suiTest />
-		<el-button type="primary">Primary</el-button>
+		<!-- <el-button type="primary">Primary</el-button> -->
 	</div>
 </template>
 
 <script setup lang="ts">
-import suiTest from '@/components/suiTest';
+import suiTest from '@/components/suiTest.vue';
 import { tst } from './test';
+let bb: number = 123;
+bb = 321;
+console.log(bb);
 
 tst();
 </script>

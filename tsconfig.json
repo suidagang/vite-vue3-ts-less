@@ -1,13 +1,13 @@
 {
 	"compilerOptions": {
-		"target": "ES2020",
+		"target": "ESNext",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
 		"skipLibCheck": true,
 
 		/* Bundler mode */
-		"moduleResolution": "nodenext",
+		"moduleResolution": "node",
 		// "allowImportingTsExtensions": true,
 		"resolveJsonModule": true,
 		"isolatedModules": true,
@@ -33,5 +33,7 @@
 		".eslintrc.cjs",
 		"vite.config.ts"
 	],
+	// ts 排除的文件
+	"exclude": ["node_modules"],
 	"references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 import eslintPlugin from 'vite-plugin-eslint'; // 新增
 import stylelitPlugin from 'vite-plugin-stylelint';
+import checker from 'vite-plugin-checker';
 import AutoImport from 'unplugin-auto-import/vite'; // 自动导入常用的使用的第三方库的 API
 import Components from 'unplugin-vue-components/vite'; // 组件自动按需导入。
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
@@ -11,6 +12,10 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 export default defineConfig({
 	plugins: [
 		vue(),
+		checker({
+			typescript: true,
+			vueTsc: true,
+		}),
 		stylelitPlugin(),
 		Components({
 			dirs: ['src/components'], // 目标文件夹

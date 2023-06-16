@@ -1,3 +1,5 @@
 export const tst = (): void => {
-	console.log(1111);
+	let aa: number = 111;
+	aa = 222;
+	console.log(aa);
 };
