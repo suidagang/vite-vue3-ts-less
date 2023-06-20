@@ -7,11 +7,19 @@ import checker from 'vite-plugin-checker';
 import AutoImport from 'unplugin-auto-import/vite'; // 自动导入常用的使用的第三方库的 API
 import Components from 'unplugin-vue-components/vite'; // 组件自动按需导入。
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
+import viteCompression from 'vite-plugin-compression'; // gzip压缩
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		vue(),
+		viteCompression({
+			verbose: true,
+			disable: false,
+			threshold: 10240,
+			algorithm: 'gzip',
+			ext: '.gz',
+		}),
 		checker({
 			typescript: true,
 			vueTsc: true,
@@ -88,6 +96,14 @@ export default defineConfig({
 				changeOrigin: true, // 是否允许不同源
 				secure: false, // 支持https
 				rewrite: (path) => path.replace(/^\/api/, ''),
+			},
+		},
+	},
+	build: {
+		terserOptions: {
+			compress: {
+				drop_console: true,
+				drop_debugger: true,
 			},
 		},
 	},

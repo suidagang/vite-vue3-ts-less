@@ -7,7 +7,7 @@
 		"dev": "vite",
 		"build": "vue-tsc && vite build",
 		"preview": "vite preview",
-		"ts:check": "vue-tsc --noEmit --skipLibCheck",
+		"ts:check": "vue-tsc --noEmit",
 		"lint": "eslint \"src/**/*.{js,vue,ts}\" --fix",
 		"lint:css": "stylelint  --fix \"**/*.{vue,less,postcss,css}\"",
 		"prettier-format": "prettier --config .prettierrc.cjs \"src/**/*.{vue,js,ts,css,less}\" --write",
@@ -29,6 +29,7 @@
 		"@commitlint/config-conventional": "^17.6.5",
 		"@types/node": "^20.3.1",
 		"@typescript-eslint/eslint-plugin": "^5.50.0",
+		"@typescript-eslint/parser": "^5.60.0",
 		"@vitejs/plugin-vue": "^4.1.0",
 		"commitizen": "^4.3.0",
 		"commitlint-config-cz": "^0.13.3",
@@ -60,13 +61,13 @@
 		"unplugin-vue-components": "^0.25.1",
 		"vite": "^4.3.9",
 		"vite-plugin-checker": "^0.6.0",
+		"vite-plugin-compression": "^0.5.1",
 		"vite-plugin-stylelint": "^4.3.0",
 		"vue-tsc": "^1.4.2"
 	},
 	"lint-staged": {
 		"*.{js,jsx,vue,ts,tsx}": [
 			"yarn lint",
-			"yarn ts:check",
 			"yarn prettier-format"
 		],
 		"*.{vue,less,css,scss,sass}": [

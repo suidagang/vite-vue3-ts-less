@@ -4,7 +4,7 @@
 		"useDefineForClassFields": true,
 		"module": "ESNext",
 		"lib": ["ESNext", "DOM", "DOM.Iterable"],
-		"skipLibCheck": true,
+		"skipLibCheck": true, //开启后将跳过声明文件的类型检查
 
 		/* Bundler mode */
 		"moduleResolution": "node",
