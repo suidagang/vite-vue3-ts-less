@@ -68,6 +68,7 @@
 	"lint-staged": {
 		"*.{js,jsx,vue,ts,tsx}": [
 			"yarn lint",
+			"yarn ts:check",
 			"yarn prettier-format"
 		],
 		"*.{vue,less,css,scss,sass}": [
