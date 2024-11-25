@@ -5,7 +5,7 @@
 <script setup lang="ts">
 const num = ref<number>(1);
 num.value = 123;
-const b: string = '111'; // 新增
+const b: string = '1111'; // 新增
 const c = 234;
 num.value = Number(b) + c;
 // console.log(num, b, c);
